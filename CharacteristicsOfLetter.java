@@ -1,13 +1,30 @@
 import java.util.Scanner;
 
+/**
+ * This program tells the user the characteristics of a letter they enter.
+ *
+ * @author Ioana Marinescu
+ * @version 1.0
+ * @since 2024-03-20
+ */
+
+/**
+ * This class determines the characteristics of a given letter.
+ */
 class CharacteristicsOfLetter {
-  // constructor
+  /** Constructor for the CharacteristicsOfLetter class. */
   CharacteristicsOfLetter() {
     // so linter doesn't get mad
   }
 
+  /**
+   * Determines whether a given letter is a vowel or a consonant.
+   *
+   * @param letter The character to be checked.
+   * @return A string indicating whether the letter is a vowel, a consonant, or both.
+   */
   public static String vowelOrConsonant(char letter) {
-    char vowels[] = { 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' };
+    char vowels[] = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
 
     if (letter == 'y' || letter == 'Y') {
       return "both a vowel and a consonant";
@@ -22,6 +39,12 @@ class CharacteristicsOfLetter {
     return "a consonant";
   }
 
+  /**
+   * Determines whether a given letter is uppercase or lowercase.
+   *
+   * @param letter The character to be checked.
+   * @return A string indicating whether the letter is uppercase or lowercase.
+   */
   public static String lowerOrUpper(char letter) {
     // checks if uppercase or lowercase
     if (letter <= 122 && letter >= 97) {
@@ -31,15 +54,21 @@ class CharacteristicsOfLetter {
     }
     return " ";
   }
-  
+
+  /**
+   * Checks if the input string contains only one character.
+   *
+   * @param input The input string to be validated.
+   * @return True if the input string contains only one character, false otherwise.
+   */
   public static boolean isValid(String input) {
     if (input.length() > 1) {
       return false;
     }
     return true;
   }
-  
-  // function that displays a message letting the user know everything they need to use the program
+
+  /** Displays an introductory message to the user explaining how to use the program. */
   public static void introMessage() {
     System.out.println();
     System.out.println("Welcome to The Letter Checking Program!");
@@ -55,6 +84,11 @@ class CharacteristicsOfLetter {
     System.out.println();
   }
 
+  /**
+   * Main method to run the program.
+   *
+   * @param args Command-line arguments (not used in this program).
+   */
   public static void main(String[] args) {
     // variable declaration
     Scanner scanner = new Scanner(System.in);
@@ -93,7 +127,7 @@ class CharacteristicsOfLetter {
           letterType = vowelOrConsonant(letter);
 
           // user did not enter a letter
-          if (letterCase == " ") {
+          if (letterCase.equals(" ")) {
             System.out.println("Please enter a letter. No other characters accepted.");
           } else {
             // display function outputs to console
@@ -108,13 +142,13 @@ class CharacteristicsOfLetter {
 
       // close scanner
       scanner.close();
-      
+
       // exit message
       System.out.println("Thank you for using The Letter Checking Program!");
-     
-    // user entered invalid input for how many letters to enter
-  } catch (NumberFormatException error) {
-    System.out.println("");
-  }
+
+      // user entered invalid input for how many letters to enter
+    } catch (NumberFormatException error) {
+      System.out.println("");
+    }
   }
 }

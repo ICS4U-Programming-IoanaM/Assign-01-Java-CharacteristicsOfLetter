@@ -135,7 +135,7 @@ final class CharacteristicsOfLetter {
 
           // user imputed more than one character
         } else {
-          System.out.println("Too many characters. Enter only one character.");
+          System.out.println("Please enter only one character.");
         }
       }
 

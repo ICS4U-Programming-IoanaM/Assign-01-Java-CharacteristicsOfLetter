@@ -22,7 +22,7 @@ final class CharacteristicsOfLetter {
   public static String vowelOrConsonant(final char letter) {
     // vowels array declaration
     final char[] vowels = {
-        'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U',
+      'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U',
     };
     // return variable
     String type = " ";

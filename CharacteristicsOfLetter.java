@@ -124,7 +124,7 @@ final class CharacteristicsOfLetter {
 
           // user did not enter a letter
           if (" ".equals(letterCase)) {
-            System.out.print("Please enter a letter ");
+            System.out.print("Please enter a letter. ");
             System.out.println("No other characters accepted.");
           } else {
             // display function outputs to console

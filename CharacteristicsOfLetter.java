@@ -76,8 +76,7 @@ final class CharacteristicsOfLetter {
     System.out.print("Then, you must enter one letter (only one at a time). ");
     System.out.println("The program will tell you if it is a capital,");
     System.out.print("or lowercase letter, and if it is a vowel or a ");
-    System.out.println("consonant. To end the program, enter an asterisk ");
-    System.out.println("instead of a letter when prompted.");
+    System.out.println("consonant.");
     System.out.println();
   }
 

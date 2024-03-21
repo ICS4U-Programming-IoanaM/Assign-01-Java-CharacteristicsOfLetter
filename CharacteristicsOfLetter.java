@@ -17,9 +17,9 @@ final class CharacteristicsOfLetter {
    * Determines whether a given letter is a vowel or a consonant.
    *
    * @param letter The character to be checked.
-   * @return A string indicating whether the letter is a vowel, a consonant, or both.
+   * @return A string that returns if vowel, consonant, or both.
    */
-  public static final String vowelOrConsonant(char letter) {
+  public static String vowelOrConsonant(final char letter) {
     // vowels array declaration
     final char[] vowels = {
       'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U',
@@ -53,7 +53,7 @@ final class CharacteristicsOfLetter {
    * @param letter The character to be checked.
    * @return A string indicating whether the letter is uppercase or lowercase.
    */
-  public static final String lowerOrUpper(char letter) {
+  public static String lowerOrUpper(final char letter) {
     // return variable
     final String charCase;
     // checks if uppercase or lowercase
@@ -69,7 +69,7 @@ final class CharacteristicsOfLetter {
     return charCase;
   }
 
-  /** Displays an introductory message to the user explaining how to use the program. */
+  /** Displays a message to the user explaining how to use the program. */
   public static void introMessage() {
     System.out.println();
     System.out.println("Welcome to The Letter Checking Program!");

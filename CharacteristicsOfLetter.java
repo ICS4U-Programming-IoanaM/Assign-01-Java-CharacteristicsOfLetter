@@ -22,29 +22,25 @@ final class CharacteristicsOfLetter {
   public static String vowelOrConsonant(final char letter) {
     // vowels array declaration
     final char[] vowels = {
-      'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U',
+        'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U',
     };
     // return variable
     String type = " ";
 
     // checks if letter is y
     if (letter == 'y' || letter == 'Y') {
-      type = "both a vowel and a consonant";
+      return "both a vowel and a consonant";
 
       // checks if letter is a vowel
     } else if (" ".equals(type)) {
       for (char character : vowels) {
         if (character == letter) {
-          type = "a vowel";
+          return "a vowel";
         }
       }
-      // letter is a consonant
-    } else {
-      type = "a consonant";
     }
-
-    // returns if letter is a consonant, vowel, or both
-    return type;
+    // letter is a consonant
+    return "a consonant";
   }
 
   /**
@@ -119,7 +115,7 @@ final class CharacteristicsOfLetter {
         letterStr = scanner.nextLine();
 
         // user has imputed one character
-        if (letterStr.length() > 1) {
+        if (letterStr.length() == 1) {
           // convert string to character
           letter = letterStr.charAt(0);
 
@@ -134,7 +130,7 @@ final class CharacteristicsOfLetter {
           } else {
             // display function outputs to console
             System.out.print("Your letter is " + letterType);
-            System.out.println(" that is " + letterCase);
+            System.out.println(" which is " + letterCase);
           }
 
           // user imputed more than one character
@@ -151,7 +147,7 @@ final class CharacteristicsOfLetter {
 
       // user entered invalid input for how many letters to enter
     } catch (NumberFormatException error) {
-      System.out.println("");
+      System.out.println("That is not a valid amount of letters.");
     }
   }
 }

@@ -7,13 +7,9 @@ import java.util.Scanner;
  * @version 1.0
  * @since 2024-03-20
  */
-
-/**
- * This class determines the characteristics of a given letter.
- */
-class CharacteristicsOfLetter {
-  /** Constructor for the CharacteristicsOfLetter class. */
-  CharacteristicsOfLetter() {
+final class CharacteristicsOfLetter {
+  /** Private constructor for CharacteristicsOfLetter class. */
+  private CharacteristicsOfLetter() {
     // so linter doesn't get mad
   }
 
@@ -21,22 +17,33 @@ class CharacteristicsOfLetter {
    * Determines whether a given letter is a vowel or a consonant.
    *
    * @param letter The character to be checked.
-   * @return A string indicating whether the letter is a vowel, a consonant, or both.
+   * @return A string indicating whether the letter
+   * is a vowel, a consonant, or both.
    */
   public static String vowelOrConsonant(char letter) {
-    char vowels[] = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+    // vowels array declaration
+    final char[] vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U', };
+    // return variable
+    String type = " ";
 
+    // checks if letter is y
     if (letter == 'y' || letter == 'Y') {
-      return "both a vowel and a consonant";
-    }
+      type = "both a vowel and a consonant";
 
-    for (char character : vowels) {
-      if (character == letter) {
-        return "a vowel";
+    // checks if letter is a vowel
+    } else if (" ".equals(type)) {
+      for (char character : vowels) {
+        if (character == letter) {
+          type = "a vowel";
+        }
       }
+    // letter is a consonant
+    } else {
+      type = "a consonant";
     }
 
-    return "a consonant";
+    // returns if letter is a consonant, vowel, or both
+    return type;
   }
 
   /**
@@ -46,40 +53,36 @@ class CharacteristicsOfLetter {
    * @return A string indicating whether the letter is uppercase or lowercase.
    */
   public static String lowerOrUpper(char letter) {
+    // return variable
+    final String charCase;
     // checks if uppercase or lowercase
     if (letter <= 122 && letter >= 97) {
-      return "lowercase.";
+      charCase = "lowercase.";
     } else if (letter <= 90 && letter >= 65) {
-      return "uppercase.";
+      charCase = "uppercase.";
+    } else {
+      charCase = " ";
     }
-    return " ";
+
+    // returns string uppercase, lowercase or empty
+    return charCase;
   }
 
   /**
-   * Checks if the input string contains only one character.
-   *
-   * @param input The input string to be validated.
-   * @return True if the input string contains only one character, false otherwise.
+   * Displays an introductory message to the user explaining how to use the
+   * program.
    */
-  public static boolean isValid(String input) {
-    if (input.length() > 1) {
-      return false;
-    }
-    return true;
-  }
-
-  /** Displays an introductory message to the user explaining how to use the program. */
   public static void introMessage() {
     System.out.println();
     System.out.println("Welcome to The Letter Checking Program!");
     System.out.println();
-    System.out.println("To use this program, you much first enter how many");
-    System.out.print("letters you want to check. If you input erroneous");
+    System.out.println("To use this program, you must first enter how many");
+    System.out.print("letters you want to check. If you input erroneous ");
     System.out.println("data, it will count as a letter so be careful!");
-    System.out.print("Then, you must enter one letter (only one at a time).");
-    System.out.println("the program will tell you if it is a capital,");
-    System.out.print("or lowercase letter, and if it is a vowel or a");
-    System.out.println("capital. To end the program, enter an asterisk");
+    System.out.print("Then, you must enter one letter (only one at a time). ");
+    System.out.println("The program will tell you if it is a capital,");
+    System.out.print("or lowercase letter, and if it is a vowel or a ");
+    System.out.println("consonant. To end the program, enter an asterisk ");
     System.out.println("instead of a letter when prompted.");
     System.out.println();
   }
@@ -91,12 +94,12 @@ class CharacteristicsOfLetter {
    */
   public static void main(String[] args) {
     // variable declaration
-    Scanner scanner = new Scanner(System.in);
-    String numLettersStr;
+    final Scanner scanner = new Scanner(System.in);
+    final String numLettersStr;
     String letterStr;
     String letterCase;
     String letterType;
-    int numLetters;
+    final int numLetters;
     char letter;
 
     // introductory message (what this program is and how to use it)
@@ -118,7 +121,7 @@ class CharacteristicsOfLetter {
         letterStr = scanner.nextLine();
 
         // user has imputed one character
-        if (isValid(letterStr)) {
+        if (letterStr.length() > 1) {
           // convert string to character
           letter = letterStr.charAt(0);
 
@@ -127,11 +130,13 @@ class CharacteristicsOfLetter {
           letterType = vowelOrConsonant(letter);
 
           // user did not enter a letter
-          if (letterCase.equals(" ")) {
-            System.out.println("Please enter a letter. No other characters accepted.");
+          if (" ".equals(letterCase)) {
+            System.out.print("Please enter a letter");
+            System.out.println("No other characters accepted.");
           } else {
             // display function outputs to console
-            System.out.println("Your letter is " + letterType + " that is " + letterCase);
+            System.out.print("Your letter is " + letterType);
+            System.out.println(" that is " + letterCase);
           }
 
           // user imputed more than one character

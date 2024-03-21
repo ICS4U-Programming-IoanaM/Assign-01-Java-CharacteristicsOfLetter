@@ -17,12 +17,13 @@ final class CharacteristicsOfLetter {
    * Determines whether a given letter is a vowel or a consonant.
    *
    * @param letter The character to be checked.
-   * @return A string indicating whether the letter
-   * is a vowel, a consonant, or both.
+   * @return A string indicating whether the letter is a vowel, a consonant, or both.
    */
-  public static String vowelOrConsonant(char letter) {
+  public static final String vowelOrConsonant(char letter) {
     // vowels array declaration
-    final char[] vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U', };
+    final char[] vowels = {
+      'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U',
+    };
     // return variable
     String type = " ";
 
@@ -30,14 +31,14 @@ final class CharacteristicsOfLetter {
     if (letter == 'y' || letter == 'Y') {
       type = "both a vowel and a consonant";
 
-    // checks if letter is a vowel
+      // checks if letter is a vowel
     } else if (" ".equals(type)) {
       for (char character : vowels) {
         if (character == letter) {
           type = "a vowel";
         }
       }
-    // letter is a consonant
+      // letter is a consonant
     } else {
       type = "a consonant";
     }
@@ -52,7 +53,7 @@ final class CharacteristicsOfLetter {
    * @param letter The character to be checked.
    * @return A string indicating whether the letter is uppercase or lowercase.
    */
-  public static String lowerOrUpper(char letter) {
+  public static final String lowerOrUpper(char letter) {
     // return variable
     final String charCase;
     // checks if uppercase or lowercase
@@ -68,10 +69,7 @@ final class CharacteristicsOfLetter {
     return charCase;
   }
 
-  /**
-   * Displays an introductory message to the user explaining how to use the
-   * program.
-   */
+  /** Displays an introductory message to the user explaining how to use the program. */
   public static void introMessage() {
     System.out.println();
     System.out.println("Welcome to The Letter Checking Program!");
@@ -92,7 +90,7 @@ final class CharacteristicsOfLetter {
    *
    * @param args Command-line arguments (not used in this program).
    */
-  public static void main(String[] args) {
+  public static void main(final String[] args) {
     // variable declaration
     final Scanner scanner = new Scanner(System.in);
     final String numLettersStr;
